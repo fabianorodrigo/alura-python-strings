@@ -8,7 +8,7 @@ class ExtratorCEP:
     def get_cep(self):
         expressaoRegular = re.compile("[0-9]{5}-?[0-9]{3}")
         resultado = expressaoRegular.search(
-            self.endereco)  # retorna Match se achar
+            self.endereco)  # retorna instância de Match se achar
         if resultado:
             cep = resultado.group()
             return cep
