@@ -39,6 +39,8 @@ class ExtratorURL:
             valor = self.get_url_parametros()[iValor:iEcomercial]
         return valor
 
+    # métodos especiais são chamados pelo próprio interpretador do Python
+
     def __str__(self) -> str:
         return self.url
 
