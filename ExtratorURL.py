@@ -9,7 +9,7 @@ class ExtratorURL:
     def sanitiza_url(self, url: str):
         return url.strip()
 
-    def valida_url(self):
+    def valida_url(self) -> bool:
         # tanto None quanto String vazia retorna False
         if not self.url:
             raise ValueError("URL vazia")
@@ -19,16 +19,17 @@ class ExtratorURL:
         match = expressao_regular.match(self.url)
         if not match:
             raise ValueError("URL não é válida")
+        return True
 
-    def get_url_base(self):
+    def get_url_base(self) -> str:
         i = self.url.find("?")
         return self.url[:i]
 
-    def get_url_parametros(self):
+    def get_url_parametros(self) -> str:
         i = self.url.find("?")
         return self.url[i+1:]
 
-    def get_valor_parametro(self, nome_parametro: str):
+    def get_valor_parametro(self, nome_parametro: str) -> str:
         i = self.get_url_parametros().find(nome_parametro)
         iValor = i + len(nome_parametro)
         iEcomercial = self.get_url_parametros().find('&', iValor)
