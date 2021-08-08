@@ -37,3 +37,6 @@ class ExtratorURL:
         else:
             valor = self.get_url_parametros()[iValor:iEcomercial]
         return valor
+
+    def __str__(self) -> str:
+        return self.url
