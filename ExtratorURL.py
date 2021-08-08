@@ -15,7 +15,7 @@ class ExtratorURL:
             raise ValueError("URL vazia")
 
         expressao_regular = re.compile(
-            '(http(s)?://)?(wwww.)?bytebank.com(.br)?/cambio')
+            '(http(s)?://)?(wwww.)?[A-z]+.com(.br)?(.*)')
         match = expressao_regular.match(self.url)
         if not match:
             raise ValueError("URL não é válida")
@@ -41,3 +41,6 @@ class ExtratorURL:
 
     def __str__(self) -> str:
         return self.url
+
+    def __eq__(self, other):
+        return self.url == other.url
